@@ -63,16 +63,6 @@ class MainTabController: UITabBarController {
 
         nav.tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
 
-        let appearance = UINavigationBarAppearance()
-
-        appearance.backgroundColor = UIColor.systemBackground
-
-        if #available(iOS 15.0, *) {
-            appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
-        }
-
-        nav.navigationBar.scrollEdgeAppearance = appearance
-
         return nav
     }
 }

@@ -28,7 +28,6 @@ extension ProductsViewController {
 
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "ProductsViewController"
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
     }
 
     func layout() {

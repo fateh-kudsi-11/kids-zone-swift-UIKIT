@@ -8,35 +8,44 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    let stackView = UIStackView()
-    let label = UILabel()
+    lazy var logo: UIImageView = {
+        let imageView = UIImageView()
+
+        imageView.image = UIImage(named: "logoLight")
+
+        return imageView
+
+    }()
+
+    let genderSelector = GenderSelector()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
         layout()
     }
 }
 
 extension HomeViewController {
-    func style() {
-        view.backgroundColor = .systemBackground
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
-
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Home"
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
-    }
-
     func layout() {
-        stackView.addArrangedSubview(label)
-        view.addSubview(stackView)
+        view.backgroundColor = .systemBackground
+
+        view.addSubview(logo)
+        view.addSubview(genderSelector)
+
+        logo.activateAutoLayout()
 
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logo.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 10)
+        ])
+
+        genderSelector.activateAutoLayout()
+
+        NSLayoutConstraint.activate([
+            genderSelector.topAnchor.constraint(equalToSystemSpacingBelow: logo.bottomAnchor, multiplier: 2.5),
+            genderSelector.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: genderSelector.trailingAnchor, multiplier: 2),
+            genderSelector.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
 }

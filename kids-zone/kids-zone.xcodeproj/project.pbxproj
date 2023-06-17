@@ -17,6 +17,25 @@
 		CE05A04E2A3B54E60025E554 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05A04D2A3B54E60025E554 /* BagViewController.swift */; };
 		CE05A0502A3B55420025E554 /* SavedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05A04F2A3B55420025E554 /* SavedItemViewController.swift */; };
 		CE05A0522A3B55C70025E554 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05A0512A3B55C70025E554 /* AccountViewController.swift */; };
+		CE05A05E2A3BE8630025E554 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05A05D2A3BE8630025E554 /* UIView+Utils.swift */; };
+		CE05A0602A3BEE1D0025E554 /* GenderSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05A05F2A3BEE1D0025E554 /* GenderSelector.swift */; };
+		CE05A06C2A3D3F870025E554 /* Antonio-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0652A3D3F870025E554 /* Antonio-Regular.ttf */; };
+		CE05A06D2A3D3F870025E554 /* Antonio-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0662A3D3F870025E554 /* Antonio-SemiBold.ttf */; };
+		CE05A06E2A3D3F870025E554 /* Antonio-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0672A3D3F870025E554 /* Antonio-Medium.ttf */; };
+		CE05A06F2A3D3F870025E554 /* Antonio-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0682A3D3F870025E554 /* Antonio-ExtraLight.ttf */; };
+		CE05A0702A3D3F870025E554 /* Antonio-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0692A3D3F870025E554 /* Antonio-Light.ttf */; };
+		CE05A0712A3D3F870025E554 /* Antonio-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A06A2A3D3F870025E554 /* Antonio-Thin.ttf */; };
+		CE05A0722A3D3F870025E554 /* Antonio-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A06B2A3D3F870025E554 /* Antonio-Bold.ttf */; };
+		CE05A07D2A3D43DC0025E554 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0742A3D43DC0025E554 /* Inter-Medium.ttf */; };
+		CE05A07E2A3D43DC0025E554 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0752A3D43DC0025E554 /* Inter-Light.ttf */; };
+		CE05A07F2A3D43DC0025E554 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0762A3D43DC0025E554 /* Inter-Thin.ttf */; };
+		CE05A0802A3D43DC0025E554 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0772A3D43DC0025E554 /* Inter-Bold.ttf */; };
+		CE05A0812A3D43DC0025E554 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0782A3D43DC0025E554 /* Inter-Regular.ttf */; };
+		CE05A0822A3D43DC0025E554 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A0792A3D43DC0025E554 /* Inter-ExtraBold.ttf */; };
+		CE05A0832A3D43DC0025E554 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A07A2A3D43DC0025E554 /* Inter-ExtraLight.ttf */; };
+		CE05A0842A3D43DC0025E554 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A07B2A3D43DC0025E554 /* Inter-Black.ttf */; };
+		CE05A0852A3D43DC0025E554 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A07C2A3D43DC0025E554 /* Inter-SemiBold.ttf */; };
+		CE05A0872A3D45490025E554 /* UIFont+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05A0862A3D45490025E554 /* UIFont+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +51,25 @@
 		CE05A04D2A3B54E60025E554 /* BagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewController.swift; sourceTree = "<group>"; };
 		CE05A04F2A3B55420025E554 /* SavedItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemViewController.swift; sourceTree = "<group>"; };
 		CE05A0512A3B55C70025E554 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		CE05A05D2A3BE8630025E554 /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		CE05A05F2A3BEE1D0025E554 /* GenderSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelector.swift; sourceTree = "<group>"; };
+		CE05A0652A3D3F870025E554 /* Antonio-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Antonio-Regular.ttf"; sourceTree = "<group>"; };
+		CE05A0662A3D3F870025E554 /* Antonio-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Antonio-SemiBold.ttf"; sourceTree = "<group>"; };
+		CE05A0672A3D3F870025E554 /* Antonio-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Antonio-Medium.ttf"; sourceTree = "<group>"; };
+		CE05A0682A3D3F870025E554 /* Antonio-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Antonio-ExtraLight.ttf"; sourceTree = "<group>"; };
+		CE05A0692A3D3F870025E554 /* Antonio-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Antonio-Light.ttf"; sourceTree = "<group>"; };
+		CE05A06A2A3D3F870025E554 /* Antonio-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Antonio-Thin.ttf"; sourceTree = "<group>"; };
+		CE05A06B2A3D3F870025E554 /* Antonio-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Antonio-Bold.ttf"; sourceTree = "<group>"; };
+		CE05A0742A3D43DC0025E554 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		CE05A0752A3D43DC0025E554 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		CE05A0762A3D43DC0025E554 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		CE05A0772A3D43DC0025E554 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		CE05A0782A3D43DC0025E554 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		CE05A0792A3D43DC0025E554 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CE05A07A2A3D43DC0025E554 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		CE05A07B2A3D43DC0025E554 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		CE05A07C2A3D43DC0025E554 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		CE05A0862A3D45490025E554 /* UIFont+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +106,8 @@
 				CE05A0432A3B47EE0025E554 /* View */,
 				CE05A0442A3B47FA0025E554 /* ViewController */,
 				CE05A0452A3B480A0025E554 /* Controller */,
+				CE05A05C2A3BE83F0025E554 /* Utils */,
+				CE05A0612A3D3C060025E554 /* Fonts */,
 				CE05A0462A3B48380025E554 /* Files */,
 			);
 			path = "kids-zone";
@@ -83,6 +123,7 @@
 		CE05A0432A3B47EE0025E554 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE05A05F2A3BEE1D0025E554 /* GenderSelector.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,6 +160,54 @@
 			name = Files;
 			sourceTree = "<group>";
 		};
+		CE05A05C2A3BE83F0025E554 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE05A05D2A3BE8630025E554 /* UIView+Utils.swift */,
+				CE05A0862A3D45490025E554 /* UIFont+Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CE05A0612A3D3C060025E554 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CE05A0732A3D43DC0025E554 /* Inter */,
+				CE05A0642A3D3F870025E554 /* Antonio */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CE05A0642A3D3F870025E554 /* Antonio */ = {
+			isa = PBXGroup;
+			children = (
+				CE05A0652A3D3F870025E554 /* Antonio-Regular.ttf */,
+				CE05A0662A3D3F870025E554 /* Antonio-SemiBold.ttf */,
+				CE05A0672A3D3F870025E554 /* Antonio-Medium.ttf */,
+				CE05A0682A3D3F870025E554 /* Antonio-ExtraLight.ttf */,
+				CE05A0692A3D3F870025E554 /* Antonio-Light.ttf */,
+				CE05A06A2A3D3F870025E554 /* Antonio-Thin.ttf */,
+				CE05A06B2A3D3F870025E554 /* Antonio-Bold.ttf */,
+			);
+			path = Antonio;
+			sourceTree = "<group>";
+		};
+		CE05A0732A3D43DC0025E554 /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				CE05A0742A3D43DC0025E554 /* Inter-Medium.ttf */,
+				CE05A0752A3D43DC0025E554 /* Inter-Light.ttf */,
+				CE05A0762A3D43DC0025E554 /* Inter-Thin.ttf */,
+				CE05A0772A3D43DC0025E554 /* Inter-Bold.ttf */,
+				CE05A0782A3D43DC0025E554 /* Inter-Regular.ttf */,
+				CE05A0792A3D43DC0025E554 /* Inter-ExtraBold.ttf */,
+				CE05A07A2A3D43DC0025E554 /* Inter-ExtraLight.ttf */,
+				CE05A07B2A3D43DC0025E554 /* Inter-Black.ttf */,
+				CE05A07C2A3D43DC0025E554 /* Inter-SemiBold.ttf */,
+			);
+			path = Inter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +224,8 @@
 			dependencies = (
 			);
 			name = "kids-zone";
+			packageProductDependencies = (
+			);
 			productName = "kids-zone";
 			productReference = CE05A02B2A3B3D530025E554 /* kids-zone.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +254,8 @@
 				Base,
 			);
 			mainGroup = CE05A0222A3B3D530025E554;
+			packageReferences = (
+			);
 			productRefGroup = CE05A02C2A3B3D530025E554 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -177,8 +270,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE05A06E2A3D3F870025E554 /* Antonio-Medium.ttf in Resources */,
+				CE05A06D2A3D3F870025E554 /* Antonio-SemiBold.ttf in Resources */,
+				CE05A06C2A3D3F870025E554 /* Antonio-Regular.ttf in Resources */,
+				CE05A0842A3D43DC0025E554 /* Inter-Black.ttf in Resources */,
+				CE05A0802A3D43DC0025E554 /* Inter-Bold.ttf in Resources */,
+				CE05A0702A3D3F870025E554 /* Antonio-Light.ttf in Resources */,
+				CE05A0822A3D43DC0025E554 /* Inter-ExtraBold.ttf in Resources */,
+				CE05A0712A3D3F870025E554 /* Antonio-Thin.ttf in Resources */,
+				CE05A0812A3D43DC0025E554 /* Inter-Regular.ttf in Resources */,
 				CE05A03B2A3B3D540025E554 /* LaunchScreen.storyboard in Resources */,
+				CE05A0722A3D3F870025E554 /* Antonio-Bold.ttf in Resources */,
 				CE05A0382A3B3D540025E554 /* Assets.xcassets in Resources */,
+				CE05A0852A3D43DC0025E554 /* Inter-SemiBold.ttf in Resources */,
+				CE05A0832A3D43DC0025E554 /* Inter-ExtraLight.ttf in Resources */,
+				CE05A07F2A3D43DC0025E554 /* Inter-Thin.ttf in Resources */,
+				CE05A07E2A3D43DC0025E554 /* Inter-Light.ttf in Resources */,
+				CE05A07D2A3D43DC0025E554 /* Inter-Medium.ttf in Resources */,
+				CE05A06F2A3D3F870025E554 /* Antonio-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,8 +303,11 @@
 				CE05A0522A3B55C70025E554 /* AccountViewController.swift in Sources */,
 				CE05A0502A3B55420025E554 /* SavedItemViewController.swift in Sources */,
 				CE05A02F2A3B3D530025E554 /* AppDelegate.swift in Sources */,
+				CE05A0602A3BEE1D0025E554 /* GenderSelector.swift in Sources */,
 				CE05A0312A3B3D530025E554 /* SceneDelegate.swift in Sources */,
+				CE05A0872A3D45490025E554 /* UIFont+Utils.swift in Sources */,
 				CE05A04A2A3B53670025E554 /* HomeViewController.swift in Sources */,
+				CE05A05E2A3BE8630025E554 /* UIView+Utils.swift in Sources */,
 				CE05A04C2A3B54AE0025E554 /* ProductsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
