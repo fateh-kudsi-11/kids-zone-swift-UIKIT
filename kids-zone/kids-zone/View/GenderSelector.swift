@@ -1,16 +1,17 @@
-//
-//  GenderSelector.swift
-//  kids-zone
-//
-//  Created by user on 16.06.2023.
-//
-
 import UIKit
+
+protocol GenderSelectorDelegate: AnyObject {
+    func genderSelectorDidChange()
+}
 
 class GenderSelector: UIView {
     // MARK: - Properties
 
+    var filterOptions: FilterOptions
+
     private var lineViewCenterXConstraint: NSLayoutConstraint!
+
+    weak var delegate: GenderSelectorDelegate?
 
     private lazy var boysButton: UIButton = {
         let button = UIButton(type: .system)
@@ -44,9 +45,11 @@ class GenderSelector: UIView {
 
     // MARK: - Lifecycle
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(_ filterOptions: FilterOptions) {
+        self.filterOptions = filterOptions
+        super.init(frame: .zero)
         backgroundColor = UIColor(named: "genderSelector")
+        print(filterOptions.gender)
         layout()
     }
 
@@ -54,15 +57,15 @@ class GenderSelector: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
-// MARK: - Layout
+    // MARK: - Layout
 
-extension GenderSelector {
     func layout() {
         addSubview(boysButton)
         addSubview(girlsButton)
         addSubview(selectedLine)
+
+        // Disable autoresizing masks
         boysButton.activateAutoLayout()
         girlsButton.activateAutoLayout()
         selectedLine.activateAutoLayout()
@@ -73,53 +76,59 @@ extension GenderSelector {
             boysButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             boysButton.topAnchor.constraint(equalTo: topAnchor),
             boysButton.bottomAnchor.constraint(equalTo: bottomAnchor)
-
         ])
 
-        // girls button constraint
+        // Girls button constraint
         NSLayoutConstraint.activate([
             girlsButton.leadingAnchor.constraint(equalTo: boysButton.trailingAnchor),
             girlsButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             girlsButton.topAnchor.constraint(equalTo: topAnchor),
             girlsButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-        // selectedLine constraint
+
+        // Selected line constraint
         NSLayoutConstraint.activate([
             selectedLine.heightAnchor.constraint(equalToConstant: 2),
             selectedLine.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             selectedLine.bottomAnchor.constraint(equalTo: bottomAnchor)
-
         ])
 
-        // Create and activate centerXAnchor constraint for line view
-        // TODO: update constraint  according of gender value
+        // Create centerXAnchor constraint for line view
         lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: boysButton.centerXAnchor)
+
+        // Adjust the constraint based on the filterOptions.gender value
+        if filterOptions.gender == .girls {
+            lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: girlsButton.centerXAnchor)
+        }
         lineViewCenterXConstraint.isActive = true
     }
-}
 
-// MARK: - Selectors
+    // MARK: - Selectors
 
-extension GenderSelector {
     @objc func buttonTapped(_ sender: UIButton) {
-        animateLine(to: sender, withDuration: 0.5)
+        animateLine(to: sender, withDuration: 0.5) {
+            self.delegate?.genderSelectorDidChange()
+        }
     }
-}
 
-// MARK: - Helpers
+    // MARK: - Helpers
 
-extension GenderSelector {
-    func animateLine(to targetButton: UIButton, withDuration duration: TimeInterval) {
-        if targetButton == boysButton {
-            UIView.animate(withDuration: duration) {
-                self.lineViewCenterXConstraint.constant = 0
-                self.layoutIfNeeded()
+    func animateLine(to targetButton: UIButton, withDuration duration: TimeInterval, completion: @escaping () -> Void) {
+        UIView.animate(withDuration: duration, animations: {
+            if targetButton == self.boysButton {
+                self.lineViewCenterXConstraint.isActive = false
+                self.lineViewCenterXConstraint = self.selectedLine.centerXAnchor.constraint(equalTo: self.boysButton.centerXAnchor)
+                self.lineViewCenterXConstraint.isActive = true
+            } else {
+                self.lineViewCenterXConstraint.isActive = false
+                self.lineViewCenterXConstraint = self.selectedLine.centerXAnchor.constraint(equalTo: self.girlsButton.centerXAnchor)
+                self.lineViewCenterXConstraint.isActive = true
             }
-        } else if targetButton == girlsButton {
-            UIView.animate(withDuration: duration) {
-                self.lineViewCenterXConstraint.constant = self.girlsButton.frame.width
-                self.layoutIfNeeded()
-            }
+
+            self.layoutIfNeeded()
+        }) { _ in
+
+            completion()
         }
     }
 }

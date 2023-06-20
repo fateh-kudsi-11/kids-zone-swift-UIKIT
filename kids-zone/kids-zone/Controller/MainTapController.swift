@@ -17,6 +17,7 @@ class MainTabController: UITabBarController {
 
         tabBar.backgroundColor = UIColor.systemBackground
         tabBar.tintColor = UIColor(named: "tapbarIcon")
+
         tabBar.isTranslucent = false
         // view.backgroundColor = .systemRed
 

@@ -36,6 +36,10 @@
 		CE05A0842A3D43DC0025E554 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A07B2A3D43DC0025E554 /* Inter-Black.ttf */; };
 		CE05A0852A3D43DC0025E554 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE05A07C2A3D43DC0025E554 /* Inter-SemiBold.ttf */; };
 		CE05A0872A3D45490025E554 /* UIFont+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05A0862A3D45490025E554 /* UIFont+Utils.swift */; };
+		CEDBA8432A3E7A1900D39D8E /* FirstBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBA8422A3E7A1900D39D8E /* FirstBanner.swift */; };
+		CEDBA8452A3EBEE000D39D8E /* SecondBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBA8442A3EBEE000D39D8E /* SecondBanner.swift */; };
+		CEDBA8472A3EE79E00D39D8E /* CategoryBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBA8462A3EE79E00D39D8E /* CategoryBanner.swift */; };
+		CEDBA8492A3FD92500D39D8E /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBA8482A3FD92500D39D8E /* FilterOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +74,10 @@
 		CE05A07B2A3D43DC0025E554 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
 		CE05A07C2A3D43DC0025E554 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		CE05A0862A3D45490025E554 /* UIFont+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Utils.swift"; sourceTree = "<group>"; };
+		CEDBA8422A3E7A1900D39D8E /* FirstBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBanner.swift; sourceTree = "<group>"; };
+		CEDBA8442A3EBEE000D39D8E /* SecondBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBanner.swift; sourceTree = "<group>"; };
+		CEDBA8462A3EE79E00D39D8E /* CategoryBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBanner.swift; sourceTree = "<group>"; };
+		CEDBA8482A3FD92500D39D8E /* FilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,7 @@
 		CE05A0422A3B47D20025E554 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEDBA8482A3FD92500D39D8E /* FilterOptions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				CE05A05F2A3BEE1D0025E554 /* GenderSelector.swift */,
+				CEDBA8422A3E7A1900D39D8E /* FirstBanner.swift */,
+				CEDBA8442A3EBEE000D39D8E /* SecondBanner.swift */,
+				CEDBA8462A3EE79E00D39D8E /* CategoryBanner.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,11 +312,15 @@
 			files = (
 				CE05A0482A3B486C0025E554 /* MainTapController.swift in Sources */,
 				CE05A04E2A3B54E60025E554 /* BagViewController.swift in Sources */,
+				CEDBA8432A3E7A1900D39D8E /* FirstBanner.swift in Sources */,
 				CE05A0522A3B55C70025E554 /* AccountViewController.swift in Sources */,
 				CE05A0502A3B55420025E554 /* SavedItemViewController.swift in Sources */,
+				CEDBA8452A3EBEE000D39D8E /* SecondBanner.swift in Sources */,
 				CE05A02F2A3B3D530025E554 /* AppDelegate.swift in Sources */,
 				CE05A0602A3BEE1D0025E554 /* GenderSelector.swift in Sources */,
 				CE05A0312A3B3D530025E554 /* SceneDelegate.swift in Sources */,
+				CEDBA8492A3FD92500D39D8E /* FilterOptions.swift in Sources */,
+				CEDBA8472A3EE79E00D39D8E /* CategoryBanner.swift in Sources */,
 				CE05A0872A3D45490025E554 /* UIFont+Utils.swift in Sources */,
 				CE05A04A2A3B53670025E554 /* HomeViewController.swift in Sources */,
 				CE05A05E2A3BE8630025E554 /* UIView+Utils.swift in Sources */,
