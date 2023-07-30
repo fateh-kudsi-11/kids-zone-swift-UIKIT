@@ -3,11 +3,7 @@ import UIKit
 class HomeViewController: UIViewController {
     // MARK: - Properties
 
-    var filterOptions = FilterOptions.shared {
-        didSet {
-            updateUI()
-        }
-    }
+    var filterOptions: FilterOptions?
 
     private lazy var logo: UIImageView = {
         let imageView = UIImageView()
@@ -41,7 +37,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
 
     // MARK: - Setup UI
@@ -56,6 +58,8 @@ class HomeViewController: UIViewController {
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 10)
         ])
+
+        guard let filterOptions = filterOptions else { return }
 
         // Gender Selector
 
@@ -94,6 +98,7 @@ class HomeViewController: UIViewController {
 
         // First Banner
         firstBanner = FirstBanner(filterOptions)
+        firstBanner.delegate = self
         firstBanner.activateAutoLayout()
         containerView.addSubview(firstBanner)
         NSLayoutConstraint.activate([
@@ -105,6 +110,7 @@ class HomeViewController: UIViewController {
 
         // Second Banner
         secondBanner = SecondBanner(filterOptions)
+        secondBanner.delegate = self
         secondBanner.activateAutoLayout()
         containerView.addSubview(secondBanner)
         NSLayoutConstraint.activate([
@@ -138,7 +144,9 @@ class HomeViewController: UIViewController {
 
         // Category Banners
         firstCategoryBanner = CategoryBanner()
+        firstCategoryBanner.delegate = self
         secondCategoryBanner = CategoryBanner()
+        secondCategoryBanner.delegate = self
         stackView.addArrangedSubview(firstCategoryBanner)
         stackView.addArrangedSubview(secondCategoryBanner)
 
@@ -151,9 +159,9 @@ class HomeViewController: UIViewController {
     // MARK: - Update UI
 
     private func updateUI() {
-        // Update the genderSelector
-        genderSelector.filterOptions = filterOptions
+        guard let filterOptions = filterOptions else { return }
 
+        genderSelector.update(with: filterOptions)
         firstBanner.update(with: filterOptions)
         secondBanner.update(with: filterOptions)
 
@@ -166,7 +174,6 @@ class HomeViewController: UIViewController {
             secondCategoryBanner.update(withImage: UIImage(named: "36"), andTitle: "Jackets")
         }
 
-
         // Refresh the layout if needed
         view.setNeedsLayout()
     }
@@ -176,6 +183,41 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: GenderSelectorDelegate {
     func genderSelectorDidChange() {
+        guard let filterOptions = filterOptions else { return }
         filterOptions.gender = filterOptions.gender == .boys ? .girls : .boys
+
+        updateUI()
+    }
+}
+
+// MARK: -  FirstBannerDelegate
+
+extension HomeViewController: FirstBannerDelegate {
+    func firstBannerTapped() {
+        if let tabBarController = tabBarController {
+            tabBarController.selectedIndex = 1
+        }
+    }
+}
+
+// MARK: -  SecondBannerDelegate
+
+extension HomeViewController: SecondBannerDelegate {
+    func secondBannerTapped() {
+        if let tabBarController = tabBarController {
+            filterOptions?.directory = "activewear"
+            tabBarController.selectedIndex = 1
+        }
+    }
+}
+
+// MARK: -  SecondBannerDelegate
+
+extension HomeViewController: CategoryBannerDelegate {
+    func CategoryBannerTapped(_ directory: String) {
+        if let tabBarController = tabBarController {
+            filterOptions?.directory = directory
+            tabBarController.selectedIndex = 1
+        }
     }
 }

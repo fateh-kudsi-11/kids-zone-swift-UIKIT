@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol CategoryBannerDelegate: AnyObject {
+    func CategoryBannerTapped(_ directory: String)
+}
+
 class CategoryBanner: UIView {
     // MARK: - Properties
+
+    weak var delegate: CategoryBannerDelegate?
+    var directory: String?
 
     lazy var label: UILabel = {
         let label = UILabel()
@@ -31,6 +38,10 @@ class CategoryBanner: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        directory = nil
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        addGestureRecognizer(tapGesture)
+
         layout()
     }
 
@@ -72,7 +83,17 @@ extension CategoryBanner {
     }
 
     func update(withImage image: UIImage?, andTitle title: String) {
+        directory = title
         imageView.image = image
         label.text = title
+    }
+}
+
+// MARK: - Selector
+
+extension CategoryBanner {
+    @objc func handleTap() {
+        guard let directory = directory else { return }
+        delegate?.CategoryBannerTapped(directory.lowercased())
     }
 }

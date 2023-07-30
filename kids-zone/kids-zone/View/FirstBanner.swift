@@ -1,10 +1,15 @@
 import UIKit
 
+protocol FirstBannerDelegate: AnyObject {
+    func firstBannerTapped()
+}
+
 class FirstBanner: UIView {
     // MARK: - Properties
 
     private var gradientLayer: CAGradientLayer?
     private var filterOptions: FilterOptions
+    weak var delegate: FirstBannerDelegate?
 
     private lazy var firstLabel: UILabel = {
         let label = UILabel()
@@ -31,6 +36,8 @@ class FirstBanner: UIView {
     init(_ filterOptions: FilterOptions) {
         self.filterOptions = filterOptions
         super.init(frame: .zero)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        addGestureRecognizer(tapGesture)
         setupGradientLayer()
         layout()
     }
@@ -107,5 +114,13 @@ extension FirstBanner {
         if let gradientLayer = gradientLayer {
             layer.insertSublayer(gradientLayer, at: 0)
         }
+    }
+}
+
+// MARK: - Selector
+
+extension FirstBanner {
+    @objc func handleTap() {
+        delegate?.firstBannerTapped()
     }
 }

@@ -1,10 +1,15 @@
 import UIKit
 
+protocol SecondBannerDelegate: AnyObject {
+    func secondBannerTapped()
+}
+
 class SecondBanner: UIView {
     // MARK: - Properties
 
     private var gradientLayer: CAGradientLayer?
     private var filterOptions: FilterOptions
+    weak var delegate: SecondBannerDelegate?
 
     private lazy var firstImage: UIImageView = {
         let image = UIImageView()
@@ -48,6 +53,9 @@ class SecondBanner: UIView {
     init(_ filterOptions: FilterOptions) {
         self.filterOptions = filterOptions
         super.init(frame: .zero)
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        addGestureRecognizer(tapGesture)
         setupGradientLayer()
         layout()
     }
@@ -132,5 +140,13 @@ extension SecondBanner {
         if let gradientLayer = gradientLayer {
             layer.insertSublayer(gradientLayer, at: 0)
         }
+    }
+}
+
+// MARK: - Selector
+
+extension SecondBanner {
+    @objc func handleTap() {
+        delegate?.secondBannerTapped()
     }
 }

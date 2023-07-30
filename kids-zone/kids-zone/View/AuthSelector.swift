@@ -1,23 +1,30 @@
+//
+//  AuthSelector.swift
+//  kids-zone
+//
+//  Created by user on 15.07.2023.
+//
+
 import UIKit
 
-protocol GenderSelectorDelegate: AnyObject {
-    func genderSelectorDidChange()
+protocol AuthSelectorDelegate: AnyObject {
+    func authSelectorDidChange()
 }
 
-class GenderSelector: UIView {
+class AuthSelector: UIView {
     // MARK: - Properties
 
-    var filterOptions: FilterOptions
+    var auth: AuthMode
 
     private var lineViewCenterXConstraint: NSLayoutConstraint!
 
-    weak var delegate: GenderSelectorDelegate?
+    weak var delegate: AuthSelectorDelegate?
 
-    private lazy var boysButton: UIButton = {
+    private lazy var siginInButton: UIButton = {
         let button = UIButton(type: .system)
         let dynamicFont = UIFont.preferredFont(forTextStyle: .body)
 
-        button.setTitle("BOYS", for: .normal)
+        button.setTitle("SIGNIN", for: .normal)
         button.setTitleColor(UIColor(named: "genderSelectorButton"), for: .normal)
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         button.titleLabel?.font = .AntonioRegular(size: dynamicFont.pointSize)
@@ -25,11 +32,11 @@ class GenderSelector: UIView {
         return button
     }()
 
-    private lazy var girlsButton: UIButton = {
+    private lazy var siginUpButton: UIButton = {
         let button = UIButton(type: .system)
         let dynamicFont = UIFont.preferredFont(forTextStyle: .body)
 
-        button.setTitle("GIRLS", for: .normal)
+        button.setTitle("SIGNUP", for: .normal)
         button.setTitleColor(UIColor(named: "genderSelectorButton"), for: .normal)
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         button.titleLabel?.font = .AntonioRegular(size: dynamicFont.pointSize)
@@ -45,8 +52,8 @@ class GenderSelector: UIView {
 
     // MARK: - Lifecycle
 
-    init(_ filterOptions: FilterOptions) {
-        self.filterOptions = filterOptions
+    init(_ auth: AuthMode) {
+        self.auth = auth
         super.init(frame: .zero)
         backgroundColor = UIColor(named: "genderSelector")
 
@@ -61,29 +68,29 @@ class GenderSelector: UIView {
     // MARK: - Layout
 
     func layout() {
-        addSubview(boysButton)
-        addSubview(girlsButton)
+        addSubview(siginInButton)
+        addSubview(siginUpButton)
         addSubview(selectedLine)
 
         // Disable autoresizing masks
-        boysButton.activateAutoLayout()
-        girlsButton.activateAutoLayout()
+        siginInButton.activateAutoLayout()
+        siginUpButton.activateAutoLayout()
         selectedLine.activateAutoLayout()
 
         // Boys button constraint
         NSLayoutConstraint.activate([
-            boysButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            boysButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            boysButton.topAnchor.constraint(equalTo: topAnchor),
-            boysButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+            siginInButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            siginInButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            siginInButton.topAnchor.constraint(equalTo: topAnchor),
+            siginInButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
 
         // Girls button constraint
         NSLayoutConstraint.activate([
-            girlsButton.leadingAnchor.constraint(equalTo: boysButton.trailingAnchor),
-            girlsButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            girlsButton.topAnchor.constraint(equalTo: topAnchor),
-            girlsButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+            siginUpButton.leadingAnchor.constraint(equalTo: siginInButton.trailingAnchor),
+            siginUpButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            siginUpButton.topAnchor.constraint(equalTo: topAnchor),
+            siginUpButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
 
         // Selected line constraint
@@ -94,25 +101,25 @@ class GenderSelector: UIView {
         ])
 
         // Create centerXAnchor constraint for line view
-        lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: boysButton.centerXAnchor)
+        lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: siginInButton.centerXAnchor)
 
         // Adjust the constraint based on the filterOptions.gender value
-        if filterOptions.gender == .girls {
-            lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: girlsButton.centerXAnchor)
+        if auth == .signup {
+            lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: siginUpButton.centerXAnchor)
         }
         lineViewCenterXConstraint.isActive = true
     }
 
-    func update(with filterOptions: FilterOptions) {
-        self.filterOptions = filterOptions
+    func update(with auth: AuthMode) {
+        self.auth = auth
 
-        if filterOptions.gender == .boys {
+        if auth == .signin {
             lineViewCenterXConstraint.isActive = false
-            lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: boysButton.centerXAnchor)
+            lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: siginInButton.centerXAnchor)
             lineViewCenterXConstraint.isActive = true
         } else {
             lineViewCenterXConstraint.isActive = false
-            lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: girlsButton.centerXAnchor)
+            lineViewCenterXConstraint = selectedLine.centerXAnchor.constraint(equalTo: siginUpButton.centerXAnchor)
             lineViewCenterXConstraint.isActive = true
         }
     }
@@ -121,9 +128,10 @@ class GenderSelector: UIView {
 
     @objc func buttonTapped(_ sender: UIButton) {
         guard let senderLabel = sender.titleLabel?.text?.lowercased() else { return }
-        guard senderLabel != filterOptions.gender.stringValue else { return }
+
+        guard senderLabel != auth.stringValue else { return }
         animateLine(to: sender, withDuration: 0.5) {
-            self.delegate?.genderSelectorDidChange()
+            self.delegate?.authSelectorDidChange()
         }
     }
 
@@ -131,13 +139,13 @@ class GenderSelector: UIView {
 
     func animateLine(to targetButton: UIButton, withDuration duration: TimeInterval, completion: @escaping () -> Void) {
         UIView.animate(withDuration: duration, animations: {
-            if targetButton == self.boysButton {
+            if targetButton == self.siginInButton {
                 self.lineViewCenterXConstraint.isActive = false
-                self.lineViewCenterXConstraint = self.selectedLine.centerXAnchor.constraint(equalTo: self.boysButton.centerXAnchor)
+                self.lineViewCenterXConstraint = self.selectedLine.centerXAnchor.constraint(equalTo: self.siginInButton.centerXAnchor)
                 self.lineViewCenterXConstraint.isActive = true
             } else {
                 self.lineViewCenterXConstraint.isActive = false
-                self.lineViewCenterXConstraint = self.selectedLine.centerXAnchor.constraint(equalTo: self.girlsButton.centerXAnchor)
+                self.lineViewCenterXConstraint = self.selectedLine.centerXAnchor.constraint(equalTo: self.siginUpButton.centerXAnchor)
                 self.lineViewCenterXConstraint.isActive = true
             }
 
