@@ -96,7 +96,7 @@ class ProductCell: UICollectionViewCell {
     }
 
     func configure(with product: Product) {
-        let url = URL(string: "http://localhost:6000\(product.images[0].images[0])")
+        let url = URL(string: "https://kids-zone-backend-v2.onrender.com/\(product.images[0].images[0])")
         titleLabel.text = product.productName
 
         productImage.sd_setImage(with: url)
